@@ -23,9 +23,6 @@ function verifyFileEntryLine(document: vscode.TextDocument, line: number) {
 
 	const pathParts = lineText.split("/");
 	const file      = pathParts.pop();
-	if (file === undefined || file === "") {
-		return errorHighlights;
-	}
 
 	let pathToFile = localFolder;
 	let column = 0;
@@ -46,6 +43,11 @@ function verifyFileEntryLine(document: vscode.TextDocument, line: number) {
 
 		column += 1 + folder.length;
 	}
+	if (file === undefined || file === "") {
+        errorHighlights.push(getErrorHighlight(line, 0, lineText.length, `"${lineText}" is not a filepath`));
+		return errorHighlights;
+	}
+
 
 	pathToFile = path.join(pathToFile, file);
 	if (fs.existsSync(pathToFile)) {
