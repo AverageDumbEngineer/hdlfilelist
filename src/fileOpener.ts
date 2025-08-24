@@ -19,7 +19,13 @@ export function activate(context: vscode.ExtensionContext) {
             const stat = fs.statSync(filepath);
             if (stat.isFile()) {
                 const uri = vscode.Uri.file(filepath);
-                return new vscode.Location(uri, new vscode.Position(0,0));
+
+                const definitionLink: vscode.DefinitionLink = {
+                    originSelectionRange: new vscode.Range(new vscode.Position(position.line, 0), new vscode.Position(position.line, lineText.length)),
+                    targetUri: uri,
+                    targetRange: new vscode.Range(new vscode.Position(0, 0), new vscode.Position(0, 0))
+                }
+                return [definitionLink];
             }
         }
         return null;
