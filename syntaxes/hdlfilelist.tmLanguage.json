@@ -1,0 +1,22 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "HDLFileList",
+    "scopeName": "source.hdlfilelist",
+    "patterns": [
+        {
+            "name": "fileEntry.hdlfilelist",
+            "match": "(?:([\\w\\d\\-\\.]+)(/))*([\\w\\d\\-\\.]+)",
+            "captures": {
+                "0": {
+                    "name": "file.hdlfilelist"
+                },
+                "1": {
+                    "name": "folder.hdlfilelist"
+                },
+                "2": {
+                    "name": "separator.hdlfilelist"
+                }
+            }
+        }
+    ]
+}
