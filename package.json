@@ -9,12 +9,14 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:HDLFileList"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "languages": [{
       "id": "HDLFileList",
-      "aliases": ["hdlfilelist"],
+      "aliases": ["HDL files"],
       "extensions": [
         ".f"
       ]
@@ -31,7 +33,7 @@
         "textMateRules": [{
           "scope": "folder.hdlfilelist",
           "settings": {
-            "foreground": "#9CDCFE"
+            "foreground": "#CE9178"
           }
         },
         {
@@ -43,7 +45,7 @@
         {
           "scope": "file.hdlfilelist",
           "settings": {
-            "foreground": "#CE9178",
+            "foreground": "#9CDCFE",
             "fontStyle": "italic"
         }
       }]

@@ -4,19 +4,16 @@
     "scopeName": "source.hdlfilelist",
     "patterns": [
         {
-            "name": "fileEntry.hdlfilelist",
-            "match": "(?:([\\w\\d\\-\\.]+)(/))*([\\w\\d\\-\\.]+)",
-            "captures": {
-                "0": {
-                    "name": "file.hdlfilelist"
-                },
-                "1": {
-                    "name": "folder.hdlfilelist"
-                },
-                "2": {
-                    "name": "separator.hdlfilelist"
-                }
-            }
+            "name": "file.hdlfilelist",
+            "match": "[\\w\\d\\-\\.]+$"
+        },
+        {
+            "name": "separator.hdlfilelist",
+            "match": "/"
+        },
+        {
+            "name": "folder.hdlfilelist",
+            "match": "[\\w\\d\\-\\.]+"
         }
     ]
 }
