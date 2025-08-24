@@ -50,13 +50,7 @@
         }
       }]
       }
-    },
-    "commands": [
-      {
-        "command": "hdlfilelist.helloWorld",
-        "title": "Hello World"
-      }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

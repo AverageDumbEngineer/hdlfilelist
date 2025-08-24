@@ -16,7 +16,7 @@ function verifyFileEntryLine(document: vscode.TextDocument, line: number) {
 	let errorHighlights: vscode.Diagnostic[] = []
 	const localFolder = path.dirname(document.uri.fsPath);
 
-	const lineText  = document.lineAt(line).text;
+	const lineText  = document.lineAt(line).text.trim();
 	if (lineText.length == 0) {
 		return errorHighlights;
 	}
@@ -69,13 +69,13 @@ function checkDuplicatesEntries(document: vscode.TextDocument) {
     const stringDict = new Map<string, number[]>();
 
     for (let i = 0; i < document.lineCount; i++) {
-        const line = document.lineAt(i);
+        const line = document.lineAt(i).text.trim();
 
-        if (!stringDict.has(line.text)) {
-            stringDict.set(line.text, [i]);
+        if (!stringDict.has(line)) {
+            stringDict.set(line, [i]);
         }
         else {
-            const array = stringDict.get(line.text)
+            const array = stringDict.get(line)
             array?.push(i)
         }
     }
@@ -83,7 +83,7 @@ function checkDuplicatesEntries(document: vscode.TextDocument) {
     stringDict.forEach((values, key) => {
         if (values.length > 1) {
             values.forEach((value, index) => {
-                const lineText = document.lineAt(index).text
+                const lineText = document.lineAt(index).text.trim()
                 errorHighlights.push(getErrorHighlight(index, 0, lineText.length,
                     `The file \"${lineText}\" is included on several lines`, vscode.DiagnosticSeverity.Warning))
             })
