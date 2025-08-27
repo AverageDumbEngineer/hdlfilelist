@@ -2,9 +2,9 @@
   "name": "hdlfilelist",
   "displayName": "HDLFileList",
   "description": "Simple hints and management of hdl .f filelists",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.103.0"
   },
   "categories": [
     "Other"
@@ -45,8 +45,7 @@
         {
           "scope": "file.hdlfilelist",
           "settings": {
-            "foreground": "#9CDCFE",
-            "fontStyle": "italic"
+            "foreground": "#9CDCFE"
         }
       }]
       }

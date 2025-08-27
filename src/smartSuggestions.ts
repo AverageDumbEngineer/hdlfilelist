@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
                         const stat = fs.statSync(fullPath);
 
                         if (stat.isDirectory()) {
-                            const item = new vscode.CompletionItem(entry);
+                            const item = new vscode.CompletionItem(entry + "/");
                             item.kind = vscode.CompletionItemKind.Folder;
                             completionItems.push(item);
                         }
