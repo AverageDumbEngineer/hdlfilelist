@@ -83,8 +83,8 @@ function checkDuplicatesEntries(document: vscode.TextDocument) {
     stringDict.forEach((values, key) => {
         if (values.length > 1) {
             values.forEach((value, index) => {
-                const lineText = document.lineAt(index).text.trim()
-                errorHighlights.push(getErrorHighlight(index, 0, lineText.length,
+                const lineText = document.lineAt(value).text.trim()
+                errorHighlights.push(getErrorHighlight(value, 0, lineText.length,
                     `The file \"${lineText}\" is included on several lines`, vscode.DiagnosticSeverity.Warning))
             })
         }
